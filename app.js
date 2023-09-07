@@ -129,6 +129,7 @@ const generosMusicales = [
     { id: 3, nombre: "Electrónica" },
     { id: 4, nombre: "Hip Hop" },
     { id: 5, nombre: "Reggaetón" },
+    { id: 6, nombre: "TODOS" },
     // Agrega más categorías según sea necesario
     ];
 
@@ -140,35 +141,12 @@ const generosMusicales = [
     const close_nav_player = document.querySelector('#close_nav_player')
     const container_data_artista = document.querySelector('#container_data_artista')
 
-// * 1- VISTA GENERAL
 
-// // estructura card HTML
-// let div = $.createElement('div')
-// let h2 = $.createElement('h2')
-// let h3 = $.createElement('h3')
-// let small = $.createElement('small')
-// let p = $.createElement('p')
-// let p_ultimoLanzamiento = $.createElement('p')
-// let img = $.createElement('img')
+// Tarea:
+// Crear un aside con los datos de la card seleccionada
+// input de búsqueda rapida por Artista
+// hacer un registro de usuario para que se puedean elegir favoritos
 
-// // contenido card
-// let nombre = $.createTextNode(artistas[1].nombre)
-// let banda = $.createTextNode(artistas[1].banda)
-// let genero = $.createTextNode(artistas[1].genero)
-// let album = $.createTextNode(artistas[1].album)
-// let ultimoLanzamiento = $.createTextNode(artistas[1].ultimoLanzamiento)
-
-// // referenciar (atar) el contenido con su correcpondiente etiqueta html
-// h2.appendChild(nombre)
-// h3.appendChild(banda)
-// small.appendChild(genero)
-// p.appendChild(album)
-// p_ultimoLanzamiento.appendChild(ultimoLanzamiento)
-
-// img.setAttribute('src', artistas[1].img)
-
-// div.append(h2, h3, small, p, p_ultimoLanzamiento, img)
-// document.body.appendChild(div)
 
 
 function createCard(artista){
@@ -213,11 +191,11 @@ function renderedCards(array){
 
 function renderedCategorys(){
     for (const genero of generosMusicales ) {
-        console.log(genero);
         containerGenero.innerHTML += `<a class='item_genero' id="genero-${genero.id}">${genero.nombre}</a>`
     }
     
 }
+
 
 const findArtistabyNombre = (findArtista) => {
     return artistas.find( (artista) => artista.nombre === findArtista  )
@@ -232,23 +210,25 @@ const filterByCategory = () => {
     items_genero.forEach((item) => {
         item.addEventListener('click', (e) => {
             let categoria = e.target.textContent
-            let result = filterCategory(categoria)
-            renderedCards(result)
+            if (categoria === 'TODOS'){
+                renderedCards(artistas);
+            }else {
+                let result = filterCategory(categoria);
+                renderedCards(result);    
+            }
+            
         })
     })
 }
 
 const showNav = () => {
     document.addEventListener('click', (evento) => {
-        // console.log(evento.target);
-        console.dir(evento.target);
-        // console.log(evento.target.children[0]);
         let nombreArtista = evento.target.parentNode.children[0]
-        console.log(nombreArtista);
+        
         if (evento.target.parentNode.classList[0] === 'card') { // ! Mejora en la busqueda y seleccion de la card con parentNode
             nav_lower_player.classList.remove('hidden')
             let find = findArtistabyNombre(nombreArtista.textContent)
-            // console.log(find);
+
             container_data_artista.innerHTML = `
                 <img src=${find.imagen} alt=${find.nombre} style='width: 100px'>
                 <h3>${find.nombre}</h3>
@@ -258,25 +238,69 @@ const showNav = () => {
     })
 }
 
- // let cards = document.querySelectorAll('.card')
-    // console.log(cards);
-
-    // cards.forEach((card) => {
-    //     card.addEventListener('click', () => {
-    //         nav_lower_player.classList.remove('hiden')
-    //     })
-    // })
 
 
 
+let inputArtista = document.getElementById('inputArtista');
 
+
+// Agrega un evento 'input' al campo de entrada, se ejecuta con cada letra
+inputArtista.addEventListener('input', function() {
+    
+    let textoBuscado = inputArtista.value.toLowerCase();
+   
+    let result = artistas.filter(function(artista) {
+    return artista.nombre.toLocaleLowerCase().includes(textoBuscado);
+  });
+
+  renderedCards(result);  
+
+
+});
 
 window.addEventListener('DOMContentLoaded', () => {
     renderedCategorys()
     renderedCards(artistas)
     showNav()
-    close_nav_player.addEventListener('click', () => {
+    //filtroRapido();
+        close_nav_player.addEventListener('click', () => {
         nav_lower_player.classList.add('hidden')
     })
     filterByCategory()
 })
+
+
+
+
+
+
+
+// * 1- VISTA GENERAL
+
+// // estructura card HTML
+// let div = $.createElement('div')
+// let h2 = $.createElement('h2')
+// let h3 = $.createElement('h3')
+// let small = $.createElement('small')
+// let p = $.createElement('p')
+// let p_ultimoLanzamiento = $.createElement('p')
+// let img = $.createElement('img')
+
+// // contenido card
+// let nombre = $.createTextNode(artistas[1].nombre)
+// let banda = $.createTextNode(artistas[1].banda)
+// let genero = $.createTextNode(artistas[1].genero)
+// let album = $.createTextNode(artistas[1].album)
+// let ultimoLanzamiento = $.createTextNode(artistas[1].ultimoLanzamiento)
+
+// // referenciar (atar) el contenido con su correcpondiente etiqueta html
+// h2.appendChild(nombre)
+// h3.appendChild(banda)
+// small.appendChild(genero)
+// p.appendChild(album)
+// p_ultimoLanzamiento.appendChild(ultimoLanzamiento)
+
+// img.setAttribute('src', artistas[1].img)
+
+// div.append(h2, h3, small, p, p_ultimoLanzamiento, img)
+// document.body.appendChild(div)
