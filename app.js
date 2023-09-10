@@ -326,6 +326,31 @@ const closeNav = (button) => {
   });
 };
 
+// Login de Usuario
+const loginForm = document.getElementById("loginForm");
+const message = document.getElementById("message");
+
+// Función para mostrar el formulario de inicio de sesión
+function mostrarLoginForm() {
+  loginForm.style.display = "block";
+}
+
+// Función para iniciar sesión
+function iniciarSesion() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  // Lógica de autenticación (puedes personalizar esto)
+  if (username === "usuario" && password === "contraseña") {
+    message.textContent = "Inicio de sesión exitoso.";
+    // Aquí puedes redirigir al usuario a la página principal o realizar otras acciones
+    // Después de un inicio de sesión exitoso, oculta el formulario:
+    loginForm.style.display = "none";
+  } else {
+    message.textContent = "Nombre de usuario o contraseña incorrectos.";
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   renderedCategorys();
   renderedCards(artistas);

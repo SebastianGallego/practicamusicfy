@@ -37,6 +37,28 @@
             <input type="text" id="inputArtista" class="">
         </section>
 
+        <form id="loginForm" class="text-center">
+            <h2>Iniciar Sesión</h2>
+
+            <div class="containerUsername text-center"><label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required><br>
+            </div>
+
+
+            <div class="containerPassword text-center">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br>
+            </div>
+
+            <div class="ContarinerBtnIniciarSesion">
+                <button type="button" onclick="iniciarSesion()" class="btnLogin btn btn-secondary">Iniciar
+                    Sesión</button>
+
+            </div>
+
+        </form>
+
+        <p id="message"></p>
 
 
         <section id="generoMusical">

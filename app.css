@@ -1,231 +1,260 @@
+:root {
+    --colorOscuro: #000000df;
+    --colorMedio: #5a5656e4;
+    --colorClaro: #a39e9e;
+    --colorBlanco: #eeecec;
 
-:root{
-    --colorOscuro: #000000df;   
-    --colorMedio: #5a5656e4;    
-    --colorClaro: #a39e9e; 
-    --colorBlanco: #eeecec; 
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    body {
+        background-color: var(--colorOscuro);
 
-body  {
-    background-color: var(--colorOscuro);
-    
-}
+    }
 
-h1{
-    margin-left: auto; 
-    color: var(--colorMedio);
-    font-size: 48px;
-    font-weight: 600 ;
-}
+    h1 {
+        margin-left: auto;
+        color: var(--colorMedio);
+        font-size: 48px;
+        font-weight: 600;
+    }
 
-.barraSuperior {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; /* Centra verticalmente */
-    padding: 20px;
+    .barraSuperior {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* Centra verticalmente */
+        padding: 20px;
 
-}
+    }
 
-.titulo {
-    flex-grow: 1; /* Toma el espacio disponible y se expande para centrarse */
-    text-align: center; /* Centra horizontalmente el contenido */
-}
+    .titulo {
+        flex-grow: 1;
+        /* Toma el espacio disponible y se expande para centrarse */
+        text-align: center;
+        /* Centra horizontalmente el contenido */
+    }
 
-.loginBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: auto; 
-    align-items: center;
-}
+    .loginBar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        align-items: center;
+    }
 
-.userName {
-    justify-content: center;
-    color: var(--colorClaro);
-    font-size: 20px;
+    .userName {
+        justify-content: center;
+        color: var(--colorClaro);
+        font-size: 20px;
 
-}
+    }
 
-.btnLogin {
-    justify-content: center;
-    padding: 5px 10px;
-}
-
-
-main {
-    min-width: 1000px;
-
-}
+    .btnLogin {
+        justify-content: center;
+        padding: 5px 10px;
+    }
 
 
-.sectionBusqueda {
-    text-align: center;
-    padding-top: 2rem;
-    
-}
 
-#inputArtista {
-    font-size: 20px;
-    padding: 10px;
-    background-color: var(--colorMedio);
-}
+    #loginForm {
+        position: fixed;
+        top: 10%;
+        left: 85%;
+        background-color: var(--colorMedio);
+        padding: 20px;
+        border: 1px solid var(--colorBlanco);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        /* Inicialmente oculto */
+    }
 
-.tituloBusqueda {
-    color: var(--colorMedio);
-    font-size: 22px;
-    padding: 10px;
+    #loginForm>h2 {
+        font-size: 28px;
+        padding-bottom: 10px;
 
-}
+    }
 
+    #loginForm .ContarinerBtnIniciarSesion   {
+        padding: 10px;
+    }
 
-#artistas{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-}
+    #loginForm .containerUsername, .containerPassword  {
+        padding-bottom: 10px;
+        font-size: 18px;
+    }
 
-.card{
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    box-shadow: 5px 5px 5px #777775bd;
-    padding: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: var(--colorMedio);
+    main {
+        min-width: 1000px;
 
-}
-
-.estrella {
-    color: var(--colorBlanco);
-    font-size: 25px;
-  
-}
-
-.card > img {
-    width: 100%;
-    margin-top: auto;
-}
-
-#generoMusical{
-    margin: auto;
-    width: 60%;
-    padding: 5rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-   
-}
-
-.item_genero{
-    font-size: 22px;
-    width: 200px;
-    color: var(--colorClaro);
-    padding: 1.5rem 1.5rem;
-    background-color: var(--colorOscuro);
-    box-shadow: 5px 5px 5px rgba(125, 126, 128, 0.442) ;
-    cursor: pointer;
-    text-align: center;
-}
-
-#nav_lower_player{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--colorClaro);
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1.5rem;
-}
-
-#close_nav_player{
-    cursor: pointer;
-}
+    }
 
 
-.controles {
-text-align: center;
+    .sectionBusqueda {
+        text-align: center;
+        padding-top: 2rem;
 
-}
+    }
 
-/* Nav´s */
-.nav_lower_icons{
-    width: 280px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    #inputArtista {
+        font-size: 20px;
+        padding: 10px;
+        background-color: var(--colorMedio);
+    }
 
-.nav_lower_icons > div{
-    display: flex;
-    gap: 1rem;
-}
+    .tituloBusqueda {
+        color: var(--colorMedio);
+        font-size: 22px;
+        padding: 10px;
 
-.nav_lower_icons > div > i{
-    font-size: 1.4rem;
-    cursor: pointer;
-}
-
-.nav_lower_icons > div > i:hover{
-    color: var(--color-2);
-
-}
-
-.containerCerrar {
- background-color: var(--colorOscuro);
-
-}
-
-#close_nav_aside {
-    color: var(--colorBlanco);
-    margin-left: auto;
-    cursor: pointer;
-
-}
+    }
 
 
-/** ASIDE */
-aside{
-    max-width: 444px;
-    width: 100%;
-    background-color: var(--colorOscuro);
-    border: 2px var(--colorClaro);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 1.5rem;
-}
+    #artistas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
 
-aside > div{
-    width: 80%;
-    box-shadow: 5px 5px 5px #22222254;
-    background-color: var(--colorClaro);
-    padding: 1rem;
-    border-radius: 10px;
-}
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        box-shadow: 5px 5px 5px #777775bd;
+        padding: 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: var(--colorMedio);
 
-aside > div > img{
-    width: 100%;
-}
+    }
 
-#nav_aside_artist{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
+    .estrella {
+        color: var(--colorBlanco);
+        font-size: 25px;
 
-.hidden{
-    display: none !important;
-}
+    }
 
+    .card>img {
+        width: 100%;
+        margin-top: auto;
+    }
+
+    #generoMusical {
+        margin: auto;
+        width: 60%;
+        padding: 5rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+
+    }
+
+    .item_genero {
+        font-size: 22px;
+        width: 200px;
+        color: var(--colorClaro);
+        padding: 1.5rem 1.5rem;
+        background-color: var(--colorOscuro);
+        box-shadow: 5px 5px 5px rgba(125, 126, 128, 0.442);
+        cursor: pointer;
+        text-align: center;
+    }
+
+    #nav_lower_player {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: var(--colorClaro);
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1.5rem;
+    }
+
+    #close_nav_player {
+        cursor: pointer;
+    }
+
+
+    .controles {
+        text-align: center;
+
+    }
+
+    /* Nav´s */
+    .nav_lower_icons {
+        width: 280px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav_lower_icons>div {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav_lower_icons>div>i {
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+
+    .nav_lower_icons>div>i:hover {
+        color: var(--color-2);
+
+    }
+
+    .containerCerrar {
+        background-color: var(--colorOscuro);
+
+    }
+
+    #close_nav_aside {
+        color: var(--colorBlanco);
+        margin-left: auto;
+        cursor: pointer;
+
+    }
+
+
+    /** ASIDE */
+    aside {
+        max-width: 444px;
+        width: 100%;
+        background-color: var(--colorOscuro);
+        border: 2px var(--colorClaro);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    aside>div {
+        width: 80%;
+        box-shadow: 5px 5px 5px #22222254;
+        background-color: var(--colorClaro);
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    aside>div>img {
+        width: 100%;
+    }
+
+    #nav_aside_artist {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .hidden {
+        display: none !important;
+    }
