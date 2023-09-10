@@ -5,8 +5,8 @@
 }
 
 body  {
-    background-color: #000000;
-    ;
+    background-color: #000000df;
+    
 }
 
 h1{
@@ -23,11 +23,13 @@ h1{
 #inputArtista {
     font-size: 20px;
     padding: 10px;
+    background-color: #5a5656e4;
 }
 
 .tituloBusqueda {
     color: #726a6a;
     font-size: 22px;
+    padding: 10px;
 
 }
 
@@ -44,12 +46,18 @@ h1{
     display: flex;
     flex-direction: column;
     width: 250px;
-    box-shadow: 5px 5px 5px #e6e2d754;
+    box-shadow: 5px 5px 5px #777775bd;
     padding: 1rem;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #726a6a;
+    background-color: #5a5656e4;
 
+}
+
+.estrella {
+    color: #f59208;
+    font-size: 25px;
+  
 }
 
 .card > img {
@@ -65,13 +73,16 @@ h1{
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
+   
 }
 
 .item_genero{
+    font-size: 22px;
     width: 200px;
+    color: #8c8787;
     padding: 1.5rem 1.5rem;
-    background-color: rgba(240, 248, 255, 0.758);
-    box-shadow: 5px 5px 5px rgba(232, 239, 246, 0.685) ;
+    background-color: rgba(60, 62, 63, 0.805);
+    box-shadow: 5px 5px 5px rgba(125, 126, 128, 0.442) ;
     cursor: pointer;
     text-align: center;
 }
@@ -88,6 +99,46 @@ h1{
 
 #close_nav_player{
     cursor: pointer;
+}
+
+
+.controles {
+text-align: center;
+
+}
+
+
+
+/** ASIDE */
+aside{
+    max-width: 444px;
+    width: 100%;
+    background-color: var(--color-1);
+    box-shadow: 10px 5px 5px rgba(232, 239, 246, 0.685) inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+aside > div{
+    width: 80%;
+    box-shadow: 5px 5px 5px #22222254;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+aside > div > img{
+    width: 100%;
+}
+
+#nav_aside_artist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .hidden{
