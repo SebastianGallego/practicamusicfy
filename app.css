@@ -1,3 +1,10 @@
+
+:root{
+    --colorOscuro: #000000df;   
+    --colorMedio: #5a5656e4;    
+    --colorClaro: #a39e9e; 
+    --colorBlanco: #eeecec; 
+
 *{
     margin: 0;
     padding: 0;
@@ -5,29 +12,71 @@
 }
 
 body  {
-    background-color: #000000df;
+    background-color: var(--colorOscuro);
     
 }
 
 h1{
-    text-align: center;
-    color: #726a6a;
+    margin-left: auto; 
+    color: var(--colorMedio);
+    font-size: 48px;
+    font-weight: 600 ;
 }
+
+.barraSuperior {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; /* Centra verticalmente */
+    padding: 20px;
+
+}
+
+.titulo {
+    flex-grow: 1; /* Toma el espacio disponible y se expande para centrarse */
+    text-align: center; /* Centra horizontalmente el contenido */
+}
+
+.loginBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto; 
+    align-items: center;
+}
+
+.userName {
+    justify-content: center;
+    color: var(--colorClaro);
+    font-size: 20px;
+
+}
+
+.btnLogin {
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+
+main {
+    min-width: 1000px;
+
+}
+
 
 .sectionBusqueda {
     text-align: center;
-    margin-top: 3rem;
+    padding-top: 2rem;
     
 }
 
 #inputArtista {
     font-size: 20px;
     padding: 10px;
-    background-color: #5a5656e4;
+    background-color: var(--colorMedio);
 }
 
 .tituloBusqueda {
-    color: #726a6a;
+    color: var(--colorMedio);
     font-size: 22px;
     padding: 10px;
 
@@ -50,12 +99,12 @@ h1{
     padding: 1rem;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #5a5656e4;
+    background-color: var(--colorMedio);
 
 }
 
 .estrella {
-    color: #f59208;
+    color: var(--colorBlanco);
     font-size: 25px;
   
 }
@@ -79,9 +128,9 @@ h1{
 .item_genero{
     font-size: 22px;
     width: 200px;
-    color: #8c8787;
+    color: var(--colorClaro);
     padding: 1.5rem 1.5rem;
-    background-color: rgba(60, 62, 63, 0.805);
+    background-color: var(--colorOscuro);
     box-shadow: 5px 5px 5px rgba(125, 126, 128, 0.442) ;
     cursor: pointer;
     text-align: center;
@@ -91,7 +140,7 @@ h1{
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgb(240, 248, 255);
+    background-color: var(--colorClaro);
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1.5rem;
@@ -107,14 +156,49 @@ text-align: center;
 
 }
 
+/* Nav´s */
+.nav_lower_icons{
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_lower_icons > div{
+    display: flex;
+    gap: 1rem;
+}
+
+.nav_lower_icons > div > i{
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.nav_lower_icons > div > i:hover{
+    color: var(--color-2);
+
+}
+
+.containerCerrar {
+ background-color: var(--colorOscuro);
+
+}
+
+#close_nav_aside {
+    color: var(--colorBlanco);
+    margin-left: auto;
+    cursor: pointer;
+
+}
 
 
 /** ASIDE */
 aside{
     max-width: 444px;
     width: 100%;
-    background-color: var(--color-1);
-    box-shadow: 10px 5px 5px rgba(232, 239, 246, 0.685) inset;
+    background-color: var(--colorOscuro);
+    border: 2px var(--colorClaro);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,7 +209,7 @@ aside{
 aside > div{
     width: 80%;
     box-shadow: 5px 5px 5px #22222254;
-    background-color: #fff;
+    background-color: var(--colorClaro);
     padding: 1rem;
     border-radius: 10px;
 }

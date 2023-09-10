@@ -1,3 +1,4 @@
+//Array De Artistas
 const artistas = [
   {
     nombre: "Soda Stereo",
@@ -149,6 +150,7 @@ const artistas = [
   },
 ];
 
+//Array De Artistas
 const generosMusicales = [
   { id: 1, nombre: "Rock" },
   { id: 2, nombre: "Pop" },
@@ -157,6 +159,14 @@ const generosMusicales = [
   { id: 5, nombre: "Reggaetón" },
   { id: 6, nombre: "TODOS" },
   // Agrega más categorías según sea necesario
+];
+
+//Array De Usuarios
+const usuarios = [
+  { idUsar: 1, password: "1111" },
+  { idUsar: 2, password: "2222" },
+  { idUsar: 3, password: "3333" },
+  { idUsar: 4, password: "3333" },
 ];
 
 const $ = document;
@@ -233,12 +243,12 @@ function renderedCategorys() {
 
 // Busca el Artista por el nombre
 const findArtistabyNombre = (findArtista) => {
-  return artistas.find((artista) => artista.nombre === findArtista);
+  return _find((artista) => artista.nombre === findArtista);
 };
 
 // Funcion que Filtra por Género
 const filterCategory = (categoria) => {
-  return artistas.filter((artista) => artista.genero === categoria);
+  return filter((artista) => artista.genero === categoria);
 };
 
 //Botones de Categorias
@@ -280,27 +290,6 @@ const showNav = () => {
   });
 };
 
-let inputArtista = document.getElementById("inputArtista");
-
-// Agrega un evento 'input' al campo de entrada, se ejecuta con cada letra
-inputArtista.addEventListener("input", function () {
-  let textoBuscado = inputArtista.value.toLowerCase();
-
-  let result = artistas.filter(function (artista) {
-    return artista.nombre.toLocaleLowerCase().includes(textoBuscado);
-  });
-
-  renderedCards(result);
-});
-
-// ! function close nav player
-const closeNav = (button) => {
-  button.addEventListener("click", () => {
-    nav_lower_player.classList.add("hidden");
-    nav_aside.classList.add("hidden");
-  });
-};
-
 // ! function mostrar aside nav
 const showAsideNav = (data) => {
   const nav_aside_song = $.querySelector("#nav_aside_song");
@@ -314,6 +303,27 @@ const showAsideNav = (data) => {
                                 <img src=${data.img_descripcion} alt=${data.nombre}>
                                 <p>${data.descripcion}</p>
                                 `;
+};
+
+let inputArtista = document.getElementById("inputArtista");
+
+// Agrega un evento 'input' al campo de entrada, se ejecuta con cada letra
+inputArtista.addEventListener("input", function () {
+  let textoBuscado = inputArtista.value.toLowerCase();
+
+  let result = filter(function (artista) {
+    return artista.nombre.toLocaleLowerCase().includes(textoBuscado);
+  });
+
+  renderedCards(result);
+});
+
+// ! function close nav player
+const closeNav = (button) => {
+  button.addEventListener("click", () => {
+    nav_lower_player.classList.add("hidden");
+    nav_aside.classList.add("hidden");
+  });
 };
 
 window.addEventListener("DOMContentLoaded", () => {

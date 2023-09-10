@@ -17,66 +17,65 @@
 </head>
 
 <body>
-    <h1>Musicfy</h1>
-
-    <section class="sectionBusqueda" id="inputBusqueda">
-        <p class="tituloBusqueda">Busqueda Rapida por Autor</p>
-        <input type="text" id="inputArtista" class="">
-    </section>
+    <main>
 
 
+        <div class="barraSuperior">
+            <div class="titulo">
+                <h1>Musicfy</h1>
+            </div>
 
-    <section id="generoMusical">
+            <div class="loginBar ">
+                <button onclick="mostrarLoginForm()" class="btnLogin btn btn-secondary ">Iniciar
+                    Sesión</button>
+                <h3 class="userName">Bienvenido Sebastian</h3>
+            </div>
+        </div>
 
-    </section>
-
-    <section id="artistas">
-
-    </section>
-
+        <section class="sectionBusqueda" id="inputBusqueda">
+            <p class="tituloBusqueda">Busqueda Rapida por Autor</p>
+            <input type="text" id="inputArtista" class="">
+        </section>
 
 
+
+        <section id="generoMusical">
+
+        </section>
+
+        <section id="artistas">
+
+        </section>
+
+
+        <div id="nav_lower_player" class="hidden">
+            <div id="container_data_artista"> </div>
+
+            <div>
+                <audio src="" controls></audio>
+            </div>
+
+            <div class="nav_lower_icons">
+                <div class="controles">
+                    <i class="bi bi-file-play"></i>
+                    <i class="bi bi-file-text"></i>
+                    <i class="bi bi-list-columns"></i>
+                    <i class="bi bi-volume-up"></i>
+                </div>
+                <span id="close_nav_player">❌ Cerrar</span>
+            </div>
+        </div>
+
+    </main>
 
     <aside id="nav_aside" class="hidden">
-        <div>
-            <span id="close_nav_aside" style="margin-left: auto;">❌</span>
+        <div class="containerCerrar">
+            <span id="close_nav_aside">❌ Cerrar</span>
         </div>
-        <div id="nav_aside_song">
-        </div>
+        <div id="nav_aside_song"> </div>
 
-        <div id="nav_aside_artist">
-
-        </div>
+        <div id="nav_aside_artist"> </div>
     </aside>
-
-
-
-
-
-    <div id="nav_lower_player" class="hidden">
-        <div id="container_data_artista">
-        </div>
-
-        <div>
-            <audio src="" controls></audio>
-        </div>
-
-        <div class="nav_lower_icons">
-            <div class="controles">
-                <i class="bi bi-file-play"></i>
-                <i class="bi bi-file-text"></i>
-                <i class="bi bi-list-columns"></i>
-                <i class="bi bi-volume-up"></i>
-            </div>
-            <span id="close_nav_player">❌</span>
-        </div>
-    </div>
-
-
-
-
-
-
 
 
 
