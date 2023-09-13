@@ -163,10 +163,11 @@ const generosMusicales = [
 
 //Array De Usuarios
 const usuarios = [
-  { idUsar: 1, password: "1111" },
-  { idUsar: 2, password: "2222" },
-  { idUsar: 3, password: "3333" },
-  { idUsar: 4, password: "3333" },
+  { user: "1", pass: "1111" },
+  { user: "2", pass: "2222" },
+  { user: "3", pass: "3333" },
+  { user: "4", pass: "4444" },
+  { user: "sebastian", pass: "1234" },
 ];
 
 const $ = document;
@@ -329,27 +330,42 @@ const closeNav = (button) => {
 // Login de Usuario
 const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
+const btnCancelar = document.getElementById("btnCancelar");
+const msgUserName = document.getElementById("msgUserName");
+const username = document.getElementById("username").value;
 
 // Función para mostrar el formulario de inicio de sesión
 function mostrarLoginForm() {
   loginForm.style.display = "block";
 }
 
+//Devuelve undefined si no encuentra coincidencia
+function validarCredenciales(username, password) {
+  return (
+    usuarios.find(
+      (usuario) => usuario.user === username && usuario.pass === password
+    ) !== undefined
+  );
+}
+
 // Función para iniciar sesión
 function iniciarSesion() {
-  const username = document.getElementById("username").value;
+  // const password = document.formulario.pass.value;
   const password = document.getElementById("password").value;
 
-  // Lógica de autenticación (puedes personalizar esto)
-  if (username === "usuario" && password === "contraseña") {
-    message.textContent = "Inicio de sesión exitoso.";
-    // Aquí puedes redirigir al usuario a la página principal o realizar otras acciones
-    // Después de un inicio de sesión exitoso, oculta el formulario:
+  if (validarCredenciales(username, password)) {
     loginForm.style.display = "none";
+    const mensaje = "Hola, " + username;
+    msgUserName.textContent = mensaje;
   } else {
-    message.textContent = "Nombre de usuario o contraseña incorrectos.";
+    alert("Credenciales incorrectas.");
   }
 }
+
+btnCancelar.addEventListener("click", function () {
+  // Al cancelar Oculta el formulario
+  loginForm.style.display = "none";
+});
 
 window.addEventListener("DOMContentLoaded", () => {
   renderedCategorys();
