@@ -252,7 +252,7 @@ const filterCategory = (categoria) => {
   return filter((artista) => artista.genero === categoria);
 };
 
-//Botones de Categorias
+//Funcion Botones de Categorias
 const filterByCategory = () => {
   const items_genero = document.querySelectorAll(".item_genero");
   items_genero.forEach((item) => {
@@ -332,7 +332,7 @@ const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 const btnCancelar = document.getElementById("btnCancelar");
 const msgUserName = document.getElementById("msgUserName");
-const username = document.getElementById("username").value;
+let verPassword = document.getElementById("verPassword");
 
 // Función para mostrar el formulario de inicio de sesión
 function mostrarLoginForm() {
@@ -352,6 +352,8 @@ function validarCredenciales(username, password) {
 function iniciarSesion() {
   // const password = document.formulario.pass.value;
   const password = document.getElementById("password").value;
+  const username = document.getElementById("username").value;
+  console.log(password);
 
   if (validarCredenciales(username, password)) {
     loginForm.style.display = "none";
@@ -365,6 +367,15 @@ function iniciarSesion() {
 btnCancelar.addEventListener("click", function () {
   // Al cancelar Oculta el formulario
   loginForm.style.display = "none";
+});
+
+verPassword.addEventListener("click", function () {
+  const tipo = document.getElementById("password");
+  if (tipo.type == "password") {
+    tipo.type = "text";
+  } else {
+    tipo.type = "password";
+  }
 });
 
 window.addEventListener("DOMContentLoaded", () => {
