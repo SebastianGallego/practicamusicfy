@@ -312,7 +312,7 @@ let inputArtista = document.getElementById("inputArtista");
 inputArtista.addEventListener("input", function () {
   let textoBuscado = inputArtista.value.toLowerCase();
 
-  let result = filter(function (artista) {
+  let result = artistas.filter(function (artista) {
     return artista.nombre.toLocaleLowerCase().includes(textoBuscado);
   });
 
@@ -333,10 +333,23 @@ const message = document.getElementById("message");
 const btnCancelar = document.getElementById("btnCancelar");
 const msgUserName = document.getElementById("msgUserName");
 let verPassword = document.getElementById("verPassword");
+let loginState = false;
+const btnLogin = document.getElementById("btnLogin");
 
 // Función para mostrar el formulario de inicio de sesión
 function mostrarLoginForm() {
   loginForm.style.display = "block";
+
+  if (loginState) {
+    const password = document.getElementById("password");
+    const username = document.getElementById("username");
+    password.value = ""; //Limpio los imput, inician vacíos
+    username.value = "";
+    msgUserName.textContent = "";
+    loginState = false;
+    btnLogin.textContent = "Iniciar Sesión";
+  } else {
+  }
 }
 
 //Devuelve undefined si no encuentra coincidencia
@@ -353,14 +366,17 @@ function iniciarSesion() {
   // const password = document.formulario.pass.value;
   const password = document.getElementById("password").value;
   const username = document.getElementById("username").value;
-  console.log(password);
 
   if (validarCredenciales(username, password)) {
     loginForm.style.display = "none";
     const mensaje = "Hola, " + username;
     msgUserName.textContent = mensaje;
+    loginState = true;
+    btnLogin.textContent = "Cerrar Sesión";
   } else {
     alert("Credenciales incorrectas.");
+    loginState = false;
+    btnLogin.textContent = "Iniciar Sesión";
   }
 }
 
@@ -371,10 +387,13 @@ btnCancelar.addEventListener("click", function () {
 
 verPassword.addEventListener("click", function () {
   const tipo = document.getElementById("password");
+
   if (tipo.type == "password") {
     tipo.type = "text";
+    verPassword.className = "bi bi-eye-fill";
   } else {
     tipo.type = "password";
+    verPassword.className = "bi bi-eye-slash";
   }
 });
 
